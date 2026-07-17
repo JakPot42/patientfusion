@@ -9,7 +9,6 @@
 > Every drug interaction, screening rule, and risk score below cites a real
 > published source — but the *patients* they're applied to don't exist.
 
-CLI tool. No web deploy (Render is full at 25/25 — see portfolio CLAUDE.md).
 
 ---
 
@@ -66,7 +65,7 @@ high confidence and leaves the ambiguous band to an adjudicator.
 - **Generator:** [Synthea](https://github.com/synthetichealth/synthea)
   (MITRE), the open-source synthetic patient population simulator used
   across health IT research (also cited in this portfolio's biosurveillance
-  project, P16 BioMon).
+  project, BioMon).
 - **Dataset used:** the official 113-patient CSV sample export published at
   https://synthetichealth.github.io/synthea-sample-data/ — not custom-run,
   so every clinical fact (condition, medication, lab, encounter) is exactly
@@ -174,7 +173,7 @@ paraphrased from memory; each is a real, checkable source.
 config.py               All thresholds, cited drug interactions, screening rules — no logic
 data_prep/build_silos.py  One-time: raw Synthea export -> four fragmented silo CSVs + ground truth
 silo_loader.py           Reads a silo CSV, groups rows by (name, DOB) identity
-entity_resolver.py       Fuzzy name+DOB patient matching (adapted from GhostTrace P6)
+entity_resolver.py       Fuzzy name+DOB patient matching (adapted from GhostTrace)
 claude_adjudicator.py    Adjudicates the ambiguous match band (DEMO_MODE heuristic or live Claude)
 linkage.py               Orchestrates resolution across all 4 silos -> MasterPatient objects
 models.py                MasterPatient dataclass
